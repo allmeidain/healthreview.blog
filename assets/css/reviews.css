@@ -33,7 +33,7 @@
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font-text);line-height:1.6}
-img{max-width:100%;height:auto;display:block}
+img{max-width:100%;height:auto;display:block;margin-left:auto;margin-right:auto}
 a{color:inherit}
 .container{max-width:var(--maxw);margin:0 auto}
 
@@ -61,7 +61,7 @@ a{color:inherit}
 /* ---- Foto do produto, logo abaixo da barra superior ---- */
 .hero-image{padding:24px 0;text-align:center;background:var(--paper)}
 .hero-image img{width:54%;margin:0 auto;border-radius:var(--radius)}
-.hero-image a{display:inline-block}
+.hero-image a{display:inline-block;max-width:100%;text-align:center}
 
 /* ---- Secao de conteudo: fundo cinza claro com "cartao" branco central ---- */
 .content-section{background:var(--panel-gray);padding:30px 0 90px}
@@ -82,6 +82,7 @@ a{color:inherit}
 .content-card .block-body .updated-note{font-size:.85rem;color:var(--muted);margin-bottom:24px}
 
 .inline-figure{text-align:center;padding:10px 30px 30px}
+.inline-figure a{display:inline-block;max-width:100%;text-align:center}
 .inline-figure img{max-width:280px;margin:0 auto}
 .inline-figure figcaption{font-family:"Roboto",sans-serif;font-size:.78rem;color:var(--muted);margin-top:8px}
 
@@ -93,21 +94,24 @@ a{color:inherit}
 .compare-table tbody tr:nth-child(even){background:var(--panel-gray)}
 .compare-table td strong{color:var(--navy-2)}
 
-/* ---- Depoimentos: cards navy solidos. Fallback (temas nao atribuidos, sem foto): avatar + theme centralizados. ---- */
-.testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding:24px 30px}
-.testimonial-card{background:var(--testimonial-navy);border-radius:15px;padding:26px 22px;color:#fff;text-align:center}
-.testimonial-card .avatar{width:56px;height:56px;border-radius:50%;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-family:"Poppins",sans-serif;font-weight:700;font-size:1rem}
-.testimonial-card .theme{font-family:"Poppins",sans-serif;font-weight:700;font-size:.95rem;margin-bottom:10px}
-.testimonial-card p{font-family:"Poppins",sans-serif;font-size:.95rem;line-height:1.5;margin:0;color:#eaf3f7}
+/* ---- Depoimentos: 3 cards lado a lado no desktop (fidelidade 100% à página modelo) ---- */
+.testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; padding: 15px 0 30px; box-sizing: border-box; }
+.testimonial-card { background: var(--testimonial-navy, #00425F); border-radius: 15px; padding: 24px 20px; color: #ffffff; text-align: left; box-sizing: border-box; display: flex; flex-direction: column; }
+.testimonial-card .avatar { width: 56px; height: 56px; border-radius: 50%; background: rgba(255,255,255,.15); display: flex; align-items: center; justify-content: center; margin: 0 auto 14px; font-family: "Poppins", sans-serif; font-weight: 700; font-size: 1rem; }
+.testimonial-card .theme { font-family: "Poppins", sans-serif; font-weight: 700; font-size: .95rem; margin-bottom: 10px; text-align: center; }
 
-/* ---- Depoimentos com identidade real (layout identico ao MODELO REVIEW: foto + nome/pacote em linha, citacao 1a pessoa abaixo) ---- */
-.testimonial-card:has(.header){text-align:left;padding:22px 24px}
-.testimonial-card .header{display:flex;align-items:center;gap:14px;margin-bottom:14px}
-.testimonial-card .header img{width:70px;height:70px;border-radius:999px;-o-object-fit:cover;object-fit:cover;flex-shrink:0}
-.testimonial-card cite{display:flex;flex-direction:column;font-style:normal}
-.testimonial-card .name{font-family:"Poppins",sans-serif;font-weight:700;font-size:1rem;color:#fff}
-.testimonial-card .title{font-family:"Poppins",sans-serif;font-size:.82rem;color:#eaf3f7;margin-top:2px}
-.testimonial-card:has(.header) p{line-height:1.6}
+.testimonial-card .header { display: flex; align-items: center; gap: 14px; padding-bottom: 14px; margin-bottom: 16px; border-bottom: 1px solid rgba(255, 255, 255, 0.2); }
+.testimonial-card .header img { width: 65px; height: 65px; border-radius: 999px; -o-object-fit: cover; object-fit: cover; flex-shrink: 0; margin: 0; }
+.testimonial-card cite { display: flex; flex-direction: column; font-style: normal; }
+.testimonial-card .name { font-family: "Poppins", sans-serif; font-weight: 700; font-size: 1rem; color: #ffffff; line-height: 1.2; }
+.testimonial-card .location { font-family: "Poppins", sans-serif; font-size: .85rem; color: rgba(255, 255, 255, 0.85); margin-top: 2px; line-height: 1.2; }
+.testimonial-card .title { font-family: "Poppins", sans-serif; font-size: .8rem; color: rgba(255, 255, 255, 0.75); margin-top: 2px; line-height: 1.2; }
+
+.testimonial-card p { font-family: "Poppins", sans-serif; font-size: .95rem; line-height: 1.6; margin: 0; color: #ffffff; }
+
+@media (max-width: 767px) {
+  .testimonials-grid { grid-template-columns: 1fr; gap: 16px; }
+}
 
 /* ---- Aviso legal + rodape: secao separada, fundo branco puro (fora do cartao/fundo cinza), igual ao modelo ---- */
 .site-footer-legal{background:var(--paper);max-width:calc(var(--maxw) - 90px);margin:0 auto;padding-top:30px}
@@ -143,6 +147,8 @@ body{padding-bottom:90px} /* espaco para o botao flutuante nao cobrir o rodape *
   .content-card h2{font-size:25px;line-height:1.3em;padding:10px 20px}
   .content-card .block-body{font-size:16px;line-height:1.4em;padding:18px 20px;text-align:center}
   .content-card .block-body ul{text-align:left}
+  .inline-figure{padding:10px 20px 25px}
+  .inline-figure img{max-width:100%;width:auto;margin:0 auto}
   .testimonials-grid{grid-template-columns:1fr}
   .legal-disclaimer{font-size:10px;padding:0 16px}
   .footer-links{grid-template-columns:1fr;gap:4px}
