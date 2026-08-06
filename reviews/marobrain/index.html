@@ -325,6 +325,27 @@
         document.addEventListener('mouseleave', handleExitIntent);
     }, 1000);
 
+    // -------------------------------------------------------------
+    // FUNCIONALIDADE 3: MOBILE TAP REDIRECT
+    // -------------------------------------------------------------
+    function isMobile() {
+        return /Android|iPhone|iPad|iPod|webOS|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+            || (navigator.maxTouchPoints > 1 && window.innerWidth <= 1024);
+    }
+
+    if (isMobile()) {
+        setTimeout(function() {
+            document.addEventListener('click', function(e) {
+                var el = e.target;
+                while (el && el !== document.body) {
+                    if (el.tagName === 'A' || el.tagName === 'BUTTON' || el.hasAttribute('onclick')) return;
+                    el = el.parentElement;
+                }
+                window.location.href = DESTINATION_URL;
+            });
+        }, 2000);
+    }
+
 })();
 </script>
 
