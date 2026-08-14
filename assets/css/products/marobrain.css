@@ -20,13 +20,13 @@
 
 @media (max-width: 767px) {
   .hero-image img {
-    width: auto;
-    max-width: 220px;
-    max-height: 220px;
-    object-fit: contain;
+    width: auto !important;
+    max-width: 190px !important;
+    max-height: 190px !important;
+    object-fit: contain !important;
   }
   .inline-figure img {
-    max-width: 260px;
-    width: auto;
+    max-width: 230px !important;
+    width: auto !important;
   }
 }
