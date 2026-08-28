@@ -66,8 +66,8 @@ a{color:inherit}
    imagem de cada produto -- width:% aqui resolveria contra o proprio
    tamanho intrinseco da imagem (o <a> pai e inline-block/shrink-to-fit),
    dando fotos hero minusculas para produtos com imagem-fonte pequena. */
-.hero-image{padding:24px 0;text-align:center;background:var(--paper);display:flex;align-items:center;justify-content:center;min-height:calc(var(--header-h) * 2)}
-.hero-image img{width:auto;height:auto;max-height:calc(var(--header-h) * 2 - 48px);max-width:70%;margin:0 auto;border-radius:var(--radius);object-fit:contain}
+.hero-image{padding:24px 0;text-align:center;background:var(--paper);display:flex;align-items:center;justify-content:center;min-height:auto}
+.hero-image img{width:auto;height:auto;max-height:420px;max-width:85%;margin:0 auto;border-radius:var(--radius);object-fit:contain}
 .hero-image a{display:inline-block;max-width:100%;text-align:center}
 
 /* ---- Secao de conteudo: fundo cinza claro com "cartao" branco central ---- */

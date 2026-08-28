@@ -10,5 +10,3 @@
   --badge-bg:rgba(255,255,255,.15);
   --badge-border:rgba(238,254,60,.5);
 }
-.hero-image{min-height:auto}
-.hero-image img{max-height:420px;max-width:85%}
