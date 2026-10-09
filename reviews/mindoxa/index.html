@@ -311,67 +311,7 @@
 
 <a id="conditional-floating-button" href="https://maxwebleads.com/13005/2002/6/?" target="_blank" rel="sponsored noopener">Check Availability On Official Website</a>
 
-<script>
-(function() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const isDisabled = urlParams.has('no_exit');
 
-    if (isDisabled) {
-        return;
-    }
-
-    const DESTINATION_URL = 'https://maxwebleads.com/13005/2002/6/?';
-
-    if (!DESTINATION_URL) return;
-
-    function setupBackRedirect() {
-        try {
-            history.pushState({ page: 'retention' }, "", window.location.href);
-
-            window.addEventListener('popstate', function(event) {
-                window.location.href = DESTINATION_URL;
-            });
-        } catch (e) {}
-    }
-
-    setupBackRedirect();
-
-    let exitTriggered = false;
-
-    function handleExitIntent(e) {
-        if (exitTriggered) return;
-
-        if (e.clientY <= 5 && e.relatedTarget === null) {
-            exitTriggered = true;
-            window.removeEventListener('mouseleave', handleExitIntent);
-            window.location.href = DESTINATION_URL;
-        }
-    }
-
-    setTimeout(function() {
-        document.addEventListener('mouseleave', handleExitIntent);
-    }, 1000);
-
-    function isMobile() {
-        return /Android|iPhone|iPad|iPod|webOS|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
-            || (navigator.maxTouchPoints > 1 && window.innerWidth <= 1024);
-    }
-
-    if (isMobile()) {
-        setTimeout(function() {
-            document.addEventListener('click', function(e) {
-                var el = e.target;
-                while (el && el !== document.body) {
-                    if (el.tagName === 'A' || el.tagName === 'BUTTON' || el.hasAttribute('onclick')) return;
-                    el = el.parentElement;
-                }
-                window.location.href = DESTINATION_URL;
-            });
-        }, 2000);
-    }
-
-})();
-</script>
 
 </body>
 </html>
